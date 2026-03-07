@@ -9,7 +9,8 @@ Built for apps that use GitHub as a **file sync backend** — notes apps, static
 - 🚀 **Modern Swift** — async/await, Sendable, Swift 6 strict concurrency
 - 🌳 **Git Data API** — trees, blobs, commits, refs (the building blocks of git)
 - 📱 **Cross-platform** — iOS 16+, macOS 13+, visionOS 1+
-- 🔐 **Flexible auth** — PAT, OAuth token, or custom `AuthProvider`
+- 🔐 **Flexible auth** — PAT, OAuth (`ASWebAuthenticationSession`), or custom `AuthProvider`
+- 🔄 **Token refresh** — automatic refresh for expiring GitHub App tokens
 - 🪶 **Zero dependencies** — just Foundation + URLSession
 
 ## Installation
@@ -68,6 +69,39 @@ try await client.refs.update(owner: "user", repo: "notes", ref: "heads/main",
 | `client.commits` | `get`, `create` | Read/create Git commits |
 | `client.refs` | `get`, `update`, `create` | Read/update branch pointers |
 | `client.contents` | `get` | Convenience for single file downloads |
+
+## OAuth (iOS / macOS / iPadOS)
+
+```swift
+import GitHubAPI
+
+// 1. Configure OAuth (register at https://github.com/settings/developers)
+let config = OAuthConfiguration(
+    clientId: "Iv1.your_client_id",
+    clientSecret: "your_secret",
+    redirectURI: "yourapp://github-callback",
+    scopes: ["repo"]
+)
+
+// 2. Run the flow (presents ASWebAuthenticationSession)
+let flow = OAuthFlow(configuration: config)
+let tokenResponse = try await flow.authenticate()
+
+// 3. Use the token
+let client = GitHubClient(token: tokenResponse.accessToken)
+
+// Or with auto-refresh for expiring tokens:
+let auth = OAuthAuth(
+    accessToken: tokenResponse.accessToken,
+    refreshToken: tokenResponse.refreshToken,
+    expiresAt: Date().addingTimeInterval(Double(tokenResponse.expiresIn ?? 0)),
+    configuration: config,
+    onTokenRefresh: { newToken in
+        // Store in Keychain
+    }
+)
+let client = GitHubClient(auth: auth)
+```
 
 ## Custom Auth
 
