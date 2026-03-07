@@ -1,3 +1,0 @@
-module GitHubAPI {
-    header "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPI.build/include/GitHubAPI-Swift.h"
-}
