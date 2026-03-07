@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/master.swiftdeps"
+  },
+  "/Users/salieri/code/swift-github-api/Tests/GitHubAPITests/GitHubClientTests.swift": {
+    "dependencies": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/GitHubClientTests.d",
+    "object": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/GitHubClientTests.swift.o",
+    "swiftmodule": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/GitHubClientTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/GitHubClientTests.swiftdeps",
+    "diagnostics": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/GitHubClientTests.dia"
+  },
+  "/Users/salieri/code/swift-github-api/Tests/GitHubAPITests/ModelTests.swift": {
+    "dependencies": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/ModelTests.d",
+    "object": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/ModelTests.swift.o",
+    "swiftmodule": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/ModelTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/ModelTests.swiftdeps",
+    "diagnostics": "/Users/salieri/code/swift-github-api/.build/arm64-apple-macosx/debug/GitHubAPITests.build/ModelTests.dia"
+  }
+}

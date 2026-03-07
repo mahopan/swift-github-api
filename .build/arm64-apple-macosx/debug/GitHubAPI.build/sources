@@ -1,0 +1,15 @@
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Auth/AuthProvider.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Auth/TokenAuth.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Endpoints/BlobsEndpoint.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Endpoints/CommitsEndpoint.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Endpoints/ContentsEndpoint.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Endpoints/RefsEndpoint.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Endpoints/ReposEndpoint.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Endpoints/TreesEndpoint.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Errors.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/GitHubClient.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Models/Blob.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Models/Commit.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Models/Ref.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Models/Repository.swift
+/Users/salieri/code/swift-github-api/Sources/GitHubAPI/Models/Tree.swift
