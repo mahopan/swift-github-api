@@ -1,7 +1,7 @@
 import Foundation
 
 /// Errors returned by the GitHub API client.
-public enum GitHubError: Error, Sendable, CustomStringConvertible {
+public enum GitHubError: Error, Sendable, LocalizedError, CustomStringConvertible {
     /// HTTP 401 — invalid or expired token.
     case unauthorized
 
@@ -25,6 +25,8 @@ public enum GitHubError: Error, Sendable, CustomStringConvertible {
 
     /// Response was not an HTTP response.
     case invalidResponse
+
+    public var errorDescription: String? { description }
 
     public var description: String {
         switch self {
