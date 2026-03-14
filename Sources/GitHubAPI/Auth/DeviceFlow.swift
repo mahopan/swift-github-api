@@ -83,11 +83,26 @@ public struct DeviceFlow: Sendable {
         var interval = deviceCode.interval
         let deadline = Date().addingTimeInterval(TimeInterval(deviceCode.expiresIn))
 
+        var consecutiveNetworkErrors = 0
+        let maxNetworkRetries = 5
+
         while Date() < deadline {
             try Task.checkCancellation()
             try await Task.sleep(for: .seconds(interval))
 
-            let result = try await pollOnce(deviceCode: deviceCode.deviceCode)
+            let result: PollResult
+            do {
+                result = try await pollOnce(deviceCode: deviceCode.deviceCode)
+                consecutiveNetworkErrors = 0
+            } catch let urlError as URLError {
+                // Transient network error (e.g. app resuming from background on iOS).
+                // Retry up to maxNetworkRetries before giving up.
+                consecutiveNetworkErrors += 1
+                if consecutiveNetworkErrors >= maxNetworkRetries {
+                    throw urlError
+                }
+                continue
+            }
 
             switch result {
             case .success(let token):
